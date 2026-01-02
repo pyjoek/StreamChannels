@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <title>IPTV Channels</title>
+</head>
+<body>
+  <h1>Channels</h1>
+  <ul>
+    {% for ch in channels %}
+      <li>
+        {{ ch.flag }}
+        <a href="/player?url={{ ch.url }}&name={{ ch.name|urlencode }}">
+          {{ ch.name }}
+        </a>
+        – {{ ch.country_name }}
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

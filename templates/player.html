@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{ name }}</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <h2>{{ name }}</h2>
+
+  <video id="video" controls width="800"></video>
+
+  <script>
+    const video = document.getElementById("video");
+    const src = "{{ url }}";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(video);
+    } else {
+      video.src = src;
+    }
+  </script>
+</body>
+</html>
