@@ -5,6 +5,18 @@
 </head>
 <body>
   <h1>Channels</h1>
+
+  <form method="get">
+    <input
+      type="text"
+      name="q"
+      placeholder="Search channels..."
+      value="{{ q }}"
+      autofocus
+    >
+    <button type="submit">🔍</button>
+  </form>
+
   <ul>
     {% for ch in channels %}
       <li>
@@ -14,6 +26,8 @@
         </a>
         – {{ ch.country_name }}
       </li>
+    {% else %}
+      <li>No channels found</li>
     {% endfor %}
   </ul>
 </body>
